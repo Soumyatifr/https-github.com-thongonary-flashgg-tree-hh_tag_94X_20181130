@@ -67,25 +67,25 @@ class MicroAODCustomize(object):
                                'runDec2016Regression'
                                )
         self.options.register('runSummer16EleID',
-                              0,
+                              1,
                                VarParsing.VarParsing.multiplicity.singleton,
                                VarParsing.VarParsing.varType.int,
                               'runSummer16EleID'
                               )
         self.options.register('runSummer16EGMPhoID',
-                              0,
+                              1,
                                VarParsing.VarParsing.multiplicity.singleton,
                                VarParsing.VarParsing.varType.int,
                               'runSummer16EGMPhoID'
                               )
         self.options.register('runFall17EleID',
-                              1,
+                              0,
                                VarParsing.VarParsing.multiplicity.singleton,
                                VarParsing.VarParsing.varType.int,
                               'runFall17EleID'
                               )
         self.options.register('runFall17EGMPhoID',
-                              1,
+                              0,
                                VarParsing.VarParsing.multiplicity.singleton,
                                VarParsing.VarParsing.varType.int,
                               'runFall17EGMPhoID'

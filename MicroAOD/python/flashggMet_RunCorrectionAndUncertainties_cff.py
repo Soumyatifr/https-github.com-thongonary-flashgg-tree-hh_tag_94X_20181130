@@ -15,7 +15,7 @@ if usePrivateSQlite:
 
 def runMETs(process,era):
         
-    dBFile = os.path.expandvars(era+".db")
+    dBFile = os.path.expandvars(str(era)+".db")
     print dBFile
     if usePrivateSQlite:
         process.jec = cms.ESSource("PoolDBESSource",
@@ -24,12 +24,12 @@ def runMETs(process,era):
                                    toGet =  cms.VPSet(
                 cms.PSet(
                     record = cms.string("JetCorrectionsRecord"),
-                    tag = cms.string("JetCorrectorParametersCollection_"+era+"_AK4PF"),
+                    tag = cms.string("JetCorrectorParametersCollection_"+str(era)+"_AK4PF"),
                     label= cms.untracked.string("AK4PF")
                     ),
                 cms.PSet(
                         record = cms.string("JetCorrectionsRecord"),
-                        tag = cms.string("JetCorrectorParametersCollection_"+era+"_AK4PFchs"),
+                        tag = cms.string("JetCorrectorParametersCollection_"+str(era)+"_AK4PFchs"),
                         label= cms.untracked.string("AK4PFchs")
                         ),
                 )
