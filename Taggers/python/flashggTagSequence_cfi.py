@@ -8,7 +8,7 @@ from flashgg.Taggers.flashggUpdatedIdMVADiPhotons_cfi import flashggUpdatedIdMVA
 
 flashggTagSequence = cms.Sequence(flashggUpdatedIdMVADiPhotons
                                   * flashggPreselectedDiPhotons
-				  * flashggDiPhotonMVA
+				                  * flashggDiPhotonMVA
                                   * flashggUnpackedJets
                                   * flashggVBFMVA
                                   * flashggVBFDiPhoDiJetMVA

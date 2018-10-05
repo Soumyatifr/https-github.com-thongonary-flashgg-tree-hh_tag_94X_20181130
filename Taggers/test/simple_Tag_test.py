@@ -23,7 +23,6 @@ process.maxEvents = cms.untracked.PSet( input = cms.untracked.int32(-1) )
 #                                       )
 
 process.source = cms.Source ("PoolSource",fileNames = cms.untracked.vstring("file:myMicroAODOutputFile.root"))
-
 process.load("flashgg/Taggers/flashggTagSequence_cfi")
 process.load("flashgg/Taggers/flashggTagTester_cfi")
 
@@ -60,11 +59,9 @@ if switchToPuppi:
     process.flashggUnpackedJets.JetsTag = cms.InputTag("flashggFinalPuppiJets")
 
 from flashgg.Taggers.flashggTagOutputCommands_cff import tagDefaultOutputCommand
-
 process.out = cms.OutputModule("PoolOutputModule", fileName = cms.untracked.string('myTagOutputFile.root'),
                                outputCommands = tagDefaultOutputCommand			       
                                )
-
+#process.Tracer = cms.Service("Tracer")
 process.p = cms.Path(process.flashggTagSequence*process.flashggTagTester)
-
 process.e = cms.EndPath(process.out)

@@ -82,7 +82,6 @@ namespace flashgg {
         std::vector<std::unique_ptr<IsolationAlgoBase> > extraIsoAlgos_;
 
         bool useNewPhoId_;
-        bool is2017_;
 
         EffectiveAreas _effectiveAreas;
         vector<double> _phoIsoPtScalingCoeff;
@@ -116,24 +115,18 @@ namespace flashgg {
 
 
         useNewPhoId_ = iConfig.getParameter<bool>( "useNewPhoId" ); 
-        is2017_ = iConfig.getParameter<bool>( "is2017" );
-        
+
         //        _effectiveAreas = iConfig.getParameter<edm::FileInPath>("effAreasConfigFile").fullPath();
         //_phoIsoPtScalingCoeff = iConfig.getParameter<std::vector<double >>("phoIsoPtScalingCoeff");
         //_phoIsoCutoff = iConfig.getParameter<double>("phoIsoCutoff");
         
         phoIdMVAweightfileEB_ = iConfig.getParameter<edm::FileInPath>( "photonIdMVAweightfile_EB" );
         phoIdMVAweightfileEE_ = iConfig.getParameter<edm::FileInPath>( "photonIdMVAweightfile_EE" );
-
-        if(is2017_){ // For 2017 photon id mva
-            phoIdMVAweightfileEB_ = iConfig.getParameter<edm::FileInPath>( "photonIdMVAweightfile_EB_2017" );
-            phoIdMVAweightfileEE_ = iConfig.getParameter<edm::FileInPath>( "photonIdMVAweightfile_EE_2017" );
-        } 
-        else if(useNewPhoId_){ // For 2016 legacy photon id mva
+        if(useNewPhoId_){
             phoIdMVAweightfileEB_ = iConfig.getParameter<edm::FileInPath>( "photonIdMVAweightfile_EB_new" );
             phoIdMVAweightfileEE_ = iConfig.getParameter<edm::FileInPath>( "photonIdMVAweightfile_EE_new" );
         }
-        phoTools_.setupMVA( phoIdMVAweightfileEB_.fullPath(), phoIdMVAweightfileEE_.fullPath(), useNewPhoId_, is2017_);
+        phoTools_.setupMVA( phoIdMVAweightfileEB_.fullPath(), phoIdMVAweightfileEE_.fullPath(), useNewPhoId_);
 
         //    regressionWeightFile_ = iConfig.getParameter<edm::FileInPath>("regressionWeightFile");
 
