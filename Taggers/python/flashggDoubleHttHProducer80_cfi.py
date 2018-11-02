@@ -8,7 +8,7 @@ from flashgg.Taggers.flashggTags_cff import flashggUnpackedJets
 #print recoJetCollections
 
 #for icoll,coll in enumerate(recoJetCollections):
-flashggbRegressionProducer80= cms.EDProducer('DoubleHttHProducer80',
+flashggDoubleHttHProducer80 = cms.EDProducer('DoubleHttHProducer80',
                                    JetTag=cms.InputTag("flashggUnpackedJets","0"),
                                    ttHWeightfile= cms.untracked.string("flashgg/Taggers/data/ttHTagger/InclusiveTTH"), 
                                    DiPhotonTag=cms.InputTag('flashggPreselectedDiPhotons'), # diphoton collection (will be replaced by systematics machinery at run time)
