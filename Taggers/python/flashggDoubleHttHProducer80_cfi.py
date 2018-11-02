@@ -10,6 +10,9 @@ from flashgg.Taggers.flashggTags_cff import flashggUnpackedJets
 #for icoll,coll in enumerate(recoJetCollections):
 flashggDoubleHttHProducer80 = cms.EDProducer('DoubleHttHProducer80',
                                    JetTag=cms.InputTag("flashggUnpackedJets","0"),
+                                   ElectronTag=cms.InputTag('flashggSelectedElectrons'),
+                                   MuonTag=cms.InputTag('flashggSelectedMuons'),
+                                   VertexTag=cms.InputTag('offlineSlimmedPrimaryVertices'),
                                    ttHWeightfile= cms.untracked.string("flashgg/Taggers/data/ttHTagger/InclusiveTTH"), 
                                    DiPhotonTag=cms.InputTag('flashggPreselectedDiPhotons'), # diphoton collection (will be replaced by systematics machinery at run time)
                                    GenParticleTag = cms.InputTag( "flashggPrunedGenParticles" ), # to compute MC-truth info
